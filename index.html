@@ -6,7 +6,7 @@
     <title>FlyPig Games - 官方主页</title>
     <style>
         :root {
-            --primary-color: #01875f; /* Google Play 绿 */
+            --primary-color: #01875f;
             --bg-color: #f8f9fa;
             --text-color: #202124;
             --card-bg: #ffffff;
@@ -19,7 +19,6 @@
             color: var(--text-color);
         }
         
-        /* 顶部导航栏 */
         .header {
             background-color: #ffffff;
             box-shadow: 0 1px 4px rgba(0,0,0,0.1);
@@ -33,15 +32,11 @@
             margin: 0;
             font-size: 24px;
             color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
 
-        /* 页面主体 */
+        /* 容器宽度加宽，为了放得下3个卡片 */
         .container {
-            max-width: 1000px;
+            max-width: 1200px; 
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -54,14 +49,14 @@
             font-weight: 500;
         }
 
-        /* 游戏卡片网格布局 */
+        /* 核心修改：网格布局 */
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 自动适应屏幕宽度的网格 */
-            gap: 25px;
+            /* 默认电脑端：一行3个，每个占1份宽度 */
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 25px; /* 卡片之间的间距 */
         }
 
-        /* 单个游戏卡片 */
         .game-card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -77,38 +72,41 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* 卡片内容区 */
         .card-content {
             padding: 20px;
-            flex-grow: 1; /* 让内容撑满 */
+            flex-grow: 1;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* 图标和文字顶部对齐 */
             gap: 15px;
         }
         
-        /* 游戏图标样式 */
         .game-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 15px;
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
             object-fit: cover;
             border: 1px solid #f0f0f0;
-            flex-shrink: 0; /* 防止图标被压缩 */
+            flex-shrink: 0;
         }
 
         .game-info h3 {
-            margin: 0 0 5px 0;
+            margin: 0 0 8px 0;
             font-size: 18px;
             color: #202124;
+            line-height: 1.3;
         }
         .game-info p {
             margin: 0;
             font-size: 13px;
             color: #5f6368;
-            line-height: 1.4;
+            line-height: 1.5;
+            /* 限制介绍文字最多显示3行，多了省略号，保证卡片高度一致 */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        /* 下载按钮区域 */
         .card-action {
             padding: 15px 20px;
             background-color: #fafafa;
@@ -130,7 +128,6 @@
             background-color: #006e4d;
         }
 
-        /* 页脚 */
         .footer {
             margin-top: 60px;
             text-align: center;
@@ -138,30 +135,28 @@
             color: #9aa0a6;
             padding-bottom: 40px;
         }
-        .footer a {
-            color: #9aa0a6;
-            text-decoration: none;
+
+        /* --- 响应式适配 --- */
+        
+        /* 平板端 (宽度小于 1000px)：变成一行 2 个 */
+        @media (max-width: 1000px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        /* 手机端适配 */
+        /* 手机端 (宽度小于 600px)：变成一行 1 个 */
         @media (max-width: 600px) {
             .games-grid {
-                grid-template-columns: 1fr; /* 手机上一行一个 */
-            }
-            .header h1 {
-                font-size: 20px;
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部标题 -->
     <header class="header">
-        <h1>
-            <!-- 你可以在这里换成你的工作室Logo图片，或者保留文字 -->
-            🚀 FlyPig Games
-        </h1>
+        <h1>🚀 FlyPig Games</h1>
     </header>
 
     <div class="container">
@@ -170,47 +165,55 @@
 
         <div class="games-grid">
 
-            <!-- 游戏 1: Ball Sort Journey -->
+            <!-- 卡片 1 -->
             <div class="game-card">
                 <div class="card-content">
-                    <!-- 注意：这里需要你上传一个图标，名字叫 icon_ball.png，如果没有就先删掉 img 标签 -->
-                    <!-- 如果你想直接用 GitHub 里的图片，确保上传后修改这里的文件名 -->
-                    <img src="banner.jpg" alt="Ball Sort Icon" class="game-icon" style="object-fit: cover;"> 
-                    
+                    <!-- 请确保你上传了 icon1.png -->
+                    <img src="icon_ball.png" alt="Icon" class="game-icon">
                     <div class="game-info">
                         <h3>Ball Sort Journey</h3>
-                        <p>挑战你的逻辑思维！最令人上瘾的色彩分类益智游戏。</p>
+                        <p>挑战你的逻辑思维！最令人上瘾的色彩分类益智游戏，适合所有年龄段。</p>
                     </div>
                 </div>
                 <div class="card-action">
-                    <a href="https://play.google.com/store/apps/details?id=ball.sort.journey" class="download-btn" target="_blank">
-                        Google Play 下载
-                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=ball.sort.journey" class="download-btn" target="_blank">下载</a>
                 </div>
             </div>
 
-            <!-- 游戏 2: (模板 - 请复制这一块来添加新游戏) -->
-            <!-- 
+            <!-- 卡片 2 (示例) -->
             <div class="game-card">
                 <div class="card-content">
-                    <img src="icon_game2.png" alt="Game 2 Icon" class="game-icon">
+                    <img src="icon_game2.png" alt="Icon" class="game-icon">
                     <div class="game-info">
-                        <h3>游戏名称 2</h3>
-                        <p>这里写一句话简单的游戏介绍。</p>
+                        <h3>Tile Master</h3>
+                        <p>经典的消除类游戏，数百个关卡等你来挑战。</p>
                     </div>
                 </div>
                 <div class="card-action">
-                    <a href="https://play.google.com/store/apps/details?id=你的游戏包名" class="download-btn" target="_blank">
-                        Google Play 下载
-                    </a>
+                    <a href="#" class="download-btn">下载</a>
                 </div>
             </div>
-            -->
+
+            <!-- 卡片 3 (示例 - 刚好凑齐一行) -->
+            <div class="game-card">
+                <div class="card-content">
+                    <img src="icon_game3.png" alt="Icon" class="game-icon">
+                    <div class="game-info">
+                        <h3>Block Puzzle</h3>
+                        <p>简单又烧脑的方块拼接游戏，随时随地都能玩。</p>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <a href="#" class="download-btn">下载</a>
+                </div>
+            </div>
+            
+            <!-- 如果有第4个，会自动排到第二行去 -->
 
         </div>
 
         <div class="footer">
-            <p>&copy; 2024 FlyPig Games Studio. All rights reserved.</p>
+            <p>&copy; 2024 FlyPig Games. All rights reserved.</p>
             <p>联系我们: support@flypigzju.github.io</p>
         </div>
 
