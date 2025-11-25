@@ -3,107 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ball Sort Journey - 官方主页</title>
+    <title>FlyPig Games - 官方主页</title>
     <style>
+        :root {
+            --primary-color: #01875f; /* Google Play 绿 */
+            --bg-color: #f8f9fa;
+            --text-color: #202124;
+            --card-bg: #ffffff;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f0f2f5;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
-        .container {
-            background: white;
-            padding: 0; /* 这里的内边距去掉了，为了让图片贴边 */
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            max-width: 500px; /*稍微调窄一点，适应手机竖屏更美观 */
-            width: 100%;
+        
+        /* 顶部导航栏 */
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            padding: 20px 0;
             text-align: center;
-            overflow: hidden; /* 确保图片圆角不溢出 */
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        /* 新增：宣传图样式 */
-        .banner-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 1px solid #eee;
-        }
-        .content {
-            padding: 30px 40px 40px 40px;
-        }
-        h1 {
-            color: #2c3e50;
-            margin: 10px 0 10px 0;
+        .header h1 {
+            margin: 0;
             font-size: 24px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
-        .icon {
-            font-size: 48px;
-            margin-top: -10px;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        p {
-            margin-bottom: 30px;
-            color: #666;
-            font-size: 15px;
-        }
-        .btn {
-            display: block; /* 按钮变成块级，占满宽度 */
-            background-color: #01875f; /* Google Play 官方绿 */
-            color: white;
-            padding: 16px 0;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background-color 0.2s;
+
+        /* 页面主体 */
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
-            width: 100%;
+            padding: 40px 20px;
         }
-        .btn:hover {
-            background-color: #016e4d;
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #5f6368;
+            font-size: 1.5rem;
+            font-weight: 500;
         }
+
+        /* 游戏卡片网格布局 */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 自动适应屏幕宽度的网格 */
+            gap: 25px;
+        }
+
+        /* 单个游戏卡片 */
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* 卡片内容区 */
+        .card-content {
+            padding: 20px;
+            flex-grow: 1; /* 让内容撑满 */
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* 游戏图标样式 */
+        .game-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 1px solid #f0f0f0;
+            flex-shrink: 0; /* 防止图标被压缩 */
+        }
+
+        .game-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            color: #202124;
+        }
+        .game-info p {
+            margin: 0;
+            font-size: 13px;
+            color: #5f6368;
+            line-height: 1.4;
+        }
+
+        /* 下载按钮区域 */
+        .card-action {
+            padding: 15px 20px;
+            background-color: #fafafa;
+            border-top: 1px solid #eee;
+        }
+        .download-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .download-btn:hover {
+            background-color: #006e4d;
+        }
+
+        /* 页脚 */
         .footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #bbb;
+            margin-top: 60px;
+            text-align: center;
+            font-size: 13px;
+            color: #9aa0a6;
+            padding-bottom: 40px;
+        }
+        .footer a {
+            color: #9aa0a6;
+            text-decoration: none;
+        }
+
+        /* 手机端适配 */
+        @media (max-width: 600px) {
+            .games-grid {
+                grid-template-columns: 1fr; /* 手机上一行一个 */
+            }
+            .header h1 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- 顶部标题 -->
+    <header class="header">
+        <h1>
+            <!-- 你可以在这里换成你的工作室Logo图片，或者保留文字 -->
+            🚀 FlyPig Games
+        </h1>
+    </header>
+
     <div class="container">
-        <!-- 这里引用你刚刚上传的图片 -->
-        <!-- 如果你的图片是 .png 格式，请把下面的 .jpg 改成 .png -->
-        <img src="1024_500.png" alt="Ball Sort Journey Banner" class="banner-img">
+        
+        <h2 class="section-title">我们的游戏作品</h2>
 
-        <div class="content">
-            <!-- 小图标 -->
-            <div class="icon">🧩</div>
-            
-            <h1>Ball Sort Journey</h1>
-            
-            <p>
-                挑战你的逻辑思维！<br>
-                最令人上瘾的色彩分类益智游戏。<br>
-                现在就下载，开始你的色彩之旅。
-            </p>
+        <div class="games-grid">
 
-            <a href="https://play.google.com/store/apps/details?id=ball.sort.journey" class="btn" target="_blank">
-                在 Google Play 免费下载
-            </a>
-
-            <div class="footer">
-                <p>&copy; 2024 Ball Sort Journey Team.</p>
-                <p>联系我们: support@flypigzju.github.io</p>
+            <!-- 游戏 1: Ball Sort Journey -->
+            <div class="game-card">
+                <div class="card-content">
+                    <!-- 注意：这里需要你上传一个图标，名字叫 icon_ball.png，如果没有就先删掉 img 标签 -->
+                    <!-- 如果你想直接用 GitHub 里的图片，确保上传后修改这里的文件名 -->
+                    <img src="banner.jpg" alt="Ball Sort Icon" class="game-icon" style="object-fit: cover;"> 
+                    
+                    <div class="game-info">
+                        <h3>Ball Sort Journey</h3>
+                        <p>挑战你的逻辑思维！最令人上瘾的色彩分类益智游戏。</p>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <a href="https://play.google.com/store/apps/details?id=ball.sort.journey" class="download-btn" target="_blank">
+                        Google Play 下载
+                    </a>
+                </div>
             </div>
+
+            <!-- 游戏 2: (模板 - 请复制这一块来添加新游戏) -->
+            <!-- 
+            <div class="game-card">
+                <div class="card-content">
+                    <img src="icon_game2.png" alt="Game 2 Icon" class="game-icon">
+                    <div class="game-info">
+                        <h3>游戏名称 2</h3>
+                        <p>这里写一句话简单的游戏介绍。</p>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <a href="https://play.google.com/store/apps/details?id=你的游戏包名" class="download-btn" target="_blank">
+                        Google Play 下载
+                    </a>
+                </div>
+            </div>
+            -->
+
         </div>
+
+        <div class="footer">
+            <p>&copy; 2024 FlyPig Games Studio. All rights reserved.</p>
+            <p>联系我们: support@flypigzju.github.io</p>
+        </div>
+
     </div>
 
 </body>
