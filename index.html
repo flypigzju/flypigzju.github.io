@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlyPig Games</title>
+    <title>FlyPig Games - Official Site</title>
     <style>
         :root {
-            --primary-color: #01875f; /* Google Play 官方绿 */
+            --primary-color: #01875f; /* Google Play Green */
             --bg-color: #f0f2f5;
             --text-title: #202124;
             --text-desc: #5f6368;
@@ -21,7 +21,7 @@
             color: var(--text-title);
         }
         
-        /* 顶部导航 */
+        /* Header */
         .header {
             background-color: #ffffff;
             box-shadow: 0 1px 4px rgba(0,0,0,0.1);
@@ -34,13 +34,10 @@
         .header h1 {
             margin: 0;
             font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            color: #333;
         }
 
-        /* 页面主体容器 */
+        /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -52,26 +49,27 @@
             margin-bottom: 30px;
             color: var(--text-desc);
             font-weight: 500;
+            font-size: 1.8rem;
         }
 
-        /* --- 核心布局：网格系统 --- */
+        /* --- Grid Layout --- */
         .games-grid {
             display: grid;
-            /* 默认：一行3个 */
+            /* Default: 3 columns */
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px; /* 卡片之间的间距 */
+            gap: 30px;
         }
 
-        /* 卡片样式 */
+        /* Card Style */
         .game-card {
             background: var(--card-bg);
             border-radius: 12px;
-            overflow: hidden; /* 确保图片圆角不溢出 */
+            overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
-            flex-direction: column; /* 垂直排列内容 */
-            height: 100%; /* 确保同一行的卡片等高 */
+            flex-direction: column;
+            height: 100%;
         }
 
         .game-card:hover {
@@ -79,32 +77,33 @@
             box-shadow: 0 12px 24px rgba(0,0,0,0.15);
         }
 
-        /* 1. 顶部大图区域 */
+        /* Banner Area (1024x500 Aspect Ratio) */
         .card-banner-wrapper {
             width: 100%;
-            /* 保持 1024:500 (约 2:1) 的比例，防止图片跳动 */
             aspect-ratio: 1024 / 500; 
-            background-color: #eee;
+            background-color: #e0e0e0;
             position: relative;
         }
         .card-banner {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 保证图片填满区域不变形 */
+            object-fit: cover;
             display: block;
         }
 
-        /* 2. 中间文字区域 */
+        /* Content Area */
         .card-content {
             padding: 20px;
-            flex-grow: 1; /* 撑开中间区域 */
+            flex-grow: 1;
             text-align: left;
         }
         
         .card-content h3 {
             margin: 0 0 10px 0;
-            font-size: 20px;
+            font-size: 18px;
+            font-weight: bold;
             color: var(--text-title);
+            line-height: 1.4;
         }
         
         .card-content p {
@@ -112,14 +111,13 @@
             font-size: 14px;
             color: var(--text-desc);
             line-height: 1.6;
-            /* 限制显示 3 行，多余的显示省略号 */
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        /* 3. 底部按钮区域 */
+        /* Button Area */
         .card-action {
             padding: 20px;
             border-top: 1px solid #f0f0f0;
@@ -149,23 +147,20 @@
             text-align: center;
             font-size: 13px;
             color: #999;
+            padding-bottom: 40px;
         }
 
-        /* --- 响应式适配 --- */
-        
-        /* 平板 (宽度 < 1024px)：变成一行 2 个 */
+        /* --- Responsive Design --- */
         @media (max-width: 1024px) {
             .games-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
             }
         }
 
-        /* 手机 (宽度 < 600px)：变成一行 1 个 */
         @media (max-width: 600px) {
             .games-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Mobile: 1 column */
             }
-            .header h1 { font-size: 20px; }
         }
     </style>
 </head>
@@ -177,110 +172,141 @@
 
     <div class="container">
         
-        <h2 class="section-title">OUR GAMES</h2>
+        <h2 class="section-title">Our Games</h2>
 
         <div class="games-grid">
 
-            <!-- 卡片 1: Ball Sort Journey -->
+            <!-- 1. Ball Sort Journey -->
             <div class="game-card">
-                <!-- 顶部大图: 请确保上传了 banner.jpg -->
                 <div class="card-banner-wrapper">
-                    <img src="1024_500.png" alt="Ball Sort Banner" class="card-banner">
+                    <img src="banner1.jpg" alt="Ball Sort Journey" class="card-banner">
                 </div>
-                
-                <!-- 中间内容 -->
                 <div class="card-content">
                     <h3>Ball Sort Journey</h3>
-                    <p>
-                        挑战你的逻辑思维！最令人上瘾的色彩分类益智游戏。<br>
-                        轻松上手，深度挑战，适合所有年龄段的玩家。
-                    </p>
+                    <p>A relaxing and challenging color sorting puzzle. Sort the colored balls in the tubes to exercise your brain. Thousands of levels await!</p>
                 </div>
-
-                <!-- 底部按钮 -->
                 <div class="card-action">
-                    <a href="https://play.google.com/store/apps/details?id=ball.sort.journey" class="download-btn" target="_blank">
-                        Google Play 下载
-                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=ball.sort.journey" class="download-btn" target="_blank">Download on Google Play</a>
                 </div>
             </div>
 
-            <!-- 卡片 2 (请替换图片和链接) -->
+            <!-- 2. Color Hoop Stack -->
             <div class="game-card">
                 <div class="card-banner-wrapper">
-                    <!-- 记得修改这里的图片文件名 -->
-                    <img src="1024_500.png" alt="Game 2 Banner" class="card-banner">
+                    <img src="banner2.jpg" alt="Color Hoop Stack" class="card-banner">
                 </div>
                 <div class="card-content">
-                    <h3>Water Sort Puzzle</h3>
-                    <p>在这里写上你第二个游戏的介绍。经典的水排序玩法，数千个关卡等你来挑战！</p>
+                    <h3>Color Hoop Stack Puzzle</h3>
+                    <p>Classic color ring sorting gameplay. Stack colorful hoops on the poles to sort them. A stress-relieving and fun experience.</p>
                 </div>
                 <div class="card-action">
-                    <a href="#" class="download-btn">Google Play 下载</a>
+                    <a href="https://play.google.com/store/apps/details?id=ball.sort.water.color.hoop.stack.puzzle" class="download-btn" target="_blank">Download on Google Play</a>
                 </div>
             </div>
 
-            <!-- 卡片 3 (请替换图片和链接) -->
+            <!-- 3. Merge 2048 Hexagon -->
             <div class="game-card">
                 <div class="card-banner-wrapper">
-                    <img src="1024_500.png" alt="Game 3 Banner" class="card-banner">
+                    <img src="banner3.jpg" alt="Merge 2048 Hexagon" class="card-banner">
                 </div>
                 <div class="card-content">
-                    <h3>Wood Block Puzzle</h3>
-                    <p>在这里写上你第三个游戏的介绍。放置方块，消除整行，享受纯粹的消除乐趣。</p>
+                    <h3>Merge 2048 Hexagon</h3>
+                    <p>A perfect mix of Hexagon puzzles and 2048. Drag and drop hexagon blocks to merge numbers and reach higher scores.</p>
                 </div>
                 <div class="card-action">
-                    <a href="#" class="download-btn">Google Play 下载</a>
+                    <a href="https://play.google.com/store/apps/details?id=number.games.merge2048.hexagon.puzzle" class="download-btn" target="_blank">Download on Google Play</a>
                 </div>
             </div>
 
-            <!-- 如果有更多游戏，继续复制上面的 div class="game-card" 块即可 -->
-            <!-- 卡片 4 (请替换图片和链接) -->
+            <!-- 4. Water Sort Puzzle -->
             <div class="game-card">
                 <div class="card-banner-wrapper">
-                    <img src="1024_500.png" alt="Game 3 Banner" class="card-banner">
+                    <img src="banner4.jpg" alt="Water Sort Puzzle" class="card-banner">
                 </div>
                 <div class="card-content">
-                    <h3>Wood Block Puzzle</h3>
-                    <p>在这里写上你第三个游戏的介绍。放置方块，消除整行，享受纯粹的消除乐趣。</p>
+                    <h3>Water Sort Color Puzzle</h3>
+                    <p>The most popular liquid sorting puzzle. Pour colored water into tubes until all colors are sorted. Simple yet addictive.</p>
                 </div>
                 <div class="card-action">
-                    <a href="#" class="download-btn">Google Play 下载</a>
-                </div>
-            </div>            
-            
-            <!-- 卡片 5 (请替换图片和链接) -->
-            <div class="game-card">
-                <div class="card-banner-wrapper">
-                    <img src="1024_500.png" alt="Game 3 Banner" class="card-banner">
-                </div>
-                <div class="card-content">
-                    <h3>Wood Block Puzzle</h3>
-                    <p>在这里写上你第三个游戏的介绍。放置方块，消除整行，享受纯粹的消除乐趣。</p>
-                </div>
-                <div class="card-action">
-                    <a href="#" class="download-btn">Google Play 下载</a>
-                </div>
-            </div>            
-            
-            <!-- 卡片 6 (请替换图片和链接) -->
-            <div class="game-card">
-                <div class="card-banner-wrapper">
-                    <img src="1024_500.png" alt="Game 3 Banner" class="card-banner">
-                </div>
-                <div class="card-content">
-                    <h3>Wood Block Puzzle</h3>
-                    <p>在这里写上你第三个游戏的介绍。放置方块，消除整行，享受纯粹的消除乐趣。</p>
-                </div>
-                <div class="card-action">
-                    <a href="#" class="download-btn">Google Play 下载</a>
+                    <a href="https://play.google.com/store/apps/details?id=water.sort.color.puzzlegame" class="download-btn" target="_blank">Download on Google Play</a>
                 </div>
             </div>
+
+            <!-- 5. Block Puzzle Decor -->
+            <div class="game-card">
+                <div class="card-banner-wrapper">
+                    <img src="banner5.jpg" alt="Block Puzzle Decor" class="card-banner">
+                </div>
+                <div class="card-content">
+                    <h3>Block Puzzle: House Decor</h3>
+                    <p>Solve block puzzles to decorate your dream mansion! Classic brick elimination gameplay combined with home design.</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://play.google.com/store/apps/details?id=block.puzzle.house.room.decoration" class="download-btn" target="_blank">Download on Google Play</a>
+                </div>
+            </div>
+
+            <!-- 6. Dice Merge Puzzle -->
+            <div class="game-card">
+                <div class="card-banner-wrapper">
+                    <img src="banner6.jpg" alt="Dice Merge Puzzle" class="card-banner">
+                </div>
+                <div class="card-content">
+                    <h3>Dice Merge Number Puzzle</h3>
+                    <p>Strategic dice merging game. Rotate and match three identical dice to merge them and clear the board for high scores.</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://play.google.com/store/apps/details?id=dice.merge.number.puzzle" class="download-btn" target="_blank">Download on Google Play</a>
+                </div>
+            </div>
+
+            <!-- 7. Car Escape -->
+            <div class="game-card">
+                <div class="card-banner-wrapper">
+                    <img src="banner7.jpg" alt="Car Escape" class="card-banner">
+                </div>
+                <div class="card-content">
+                    <h3>Unblock Puzzle: Car Escape</h3>
+                    <p>Slide blocks to help the car escape the parking lot! A classic 'unblock me' style puzzle that tests your spatial logic.</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://play.google.com/store/apps/details?id=block.unblock.puzzle.car.escape" class="download-btn" target="_blank">Download on Google Play</a>
+                </div>
+            </div>
+
+            <!-- 8. Dice Merge Craft -->
+            <div class="game-card">
+                <div class="card-banner-wrapper">
+                    <img src="banner8.jpg" alt="Dice Merge Craft" class="card-banner">
+                </div>
+                <div class="card-content">
+                    <h3>Dice Merge Craft</h3>
+                    <p>Unique dice merging fun with a craft art style. Experience the joy of merging dice in a beautiful 3D block world.</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://play.google.com/store/apps/details?id=dice.merge.craft.number.puzzle" class="download-btn" target="_blank">Download on Google Play</a>
+                </div>
+            </div>
+
+            <!-- 9. Drop Number Merge -->
+            <div class="game-card">
+                <div class="card-banner-wrapper">
+                    <img src="banner9.jpg" alt="Drop Number" class="card-banner">
+                </div>
+                <div class="card-content">
+                    <h3>Drop Number: Merge 2048</h3>
+                    <p>Falling number block puzzle. Tap to drop blocks and merge identical numbers. Aim for 2048 and beyond!</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://play.google.com/store/apps/details?id=number.puzzle.games.merge.drop" class="download-btn" target="_blank">Download on Google Play</a>
+                </div>
+            </div>
+
         </div>
 
         <div class="footer">
             <p>&copy; 2024 FlyPig Games Studio. All rights reserved.</p>
-            <p>联系我们: support@flypigzju.github.io</p>
+            <p>Contact us: support@flypigzju.github.io</p>
         </div>
 
     </div>
