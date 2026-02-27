@@ -71,6 +71,10 @@
             flex-direction: column;
             height: 100%;
         }
+        
+        .game-card.featured {
+            grid-column: 1 / -1;
+        }
 
         .game-card:hover {
             transform: translateY(-8px);
@@ -175,6 +179,20 @@
         <h2 class="section-title">Our Games</h2>
 
         <div class="games-grid">
+            
+            <!-- 0. New Featured Game -->
+            <div class="game-card featured">
+                <div class="card-banner-wrapper">
+                    <img src="tilematch_cover.png" alt="Tile Match Adventure Journey" class="card-banner">
+                </div>
+                <div class="card-content">
+                    <h3>Tile Match Adventure Journey</h3>
+                    <p>Our newest tile matching adventure. Match and clear tiles through relaxing yet challenging puzzle stages in a fresh journey experience.</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://play.google.com/store/apps/details?id=tile.match.adventure.journey" class="download-btn" target="_blank">Download on Google Play</a>
+                </div>
+            </div>
 
             <!-- 1. Ball Sort Journey -->
             <div class="game-card">
