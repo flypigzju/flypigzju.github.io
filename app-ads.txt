@@ -180,7 +180,6 @@ xandr.com, 15840, RESELLER
 programmaticx.ai, 84448, RESELLER, b42d42eb28400efa
 conversantmedia.com, 41024, RESELLER, 03113cd04947736d
 tredio.io, 357a6fdf7642bf815a88822c447d9dc436891, RESELLER
-facebook.com, 1314240500512577, RESELLER, c3e20eee3f780d68
-facebook.com, 901605842579393, RESELLER, c3e20eee3f780d68
+facebook.com, 901605842579393, DIRECT, c3e20eee3f780d68
 pangleglobal.com, 5036616, DIRECT
 pubmatic.com, 161490, RESELLER, 5d62403b186f2ace
