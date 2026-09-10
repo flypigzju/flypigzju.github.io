@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlyPig Games - Official Site</title>
+    <meta name="description" content="Discover Brick Pop, our featured upcoming puzzle game, and explore the FlyPig Games collection.">
+    <meta property="og:title" content="Brick Pop — Featured at FlyPig Games">
+    <meta property="og:image" content="https://flypigzju.github.io/brick-pop-feature.png">
     <style>
         :root {
             --primary-color: #01875f; /* Google Play Green */
@@ -75,6 +78,19 @@
         .game-card.featured {
             grid-column: 1 / -1;
         }
+        .brick-feature { display: grid; grid-template-columns: 1.2fr 1fr; background: #fff; }
+        .brick-feature .feature-art { width: 100%; height: 100%; object-fit: contain; background: #c8c4ff; }
+        .feature-copy { padding: clamp(24px, 4vw, 48px); align-self: center; }
+        .feature-copy h3 { font-size: clamp(32px, 4vw, 52px); margin: 12px 0; letter-spacing: -.04em; }
+        .feature-copy p { color: var(--text-desc); line-height: 1.7; margin: 0 0 22px; }
+        .feature-label { font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #65519b; text-transform: uppercase; }
+        .feature-identity { display: flex; gap: 16px; align-items: center; }
+        .feature-thumb { width: 72px; height: 72px; border-radius: 18px; object-fit: cover; }
+        .coming-soon { display: inline-block; padding: 9px 15px; border-radius: 30px; background: #eee8fa; color: #564080; font-weight: 600; }
+        .feature-links { margin-top: 20px; }
+        .feature-links a { color: #475835; text-underline-offset: 4px; }
+        .brick-feature:hover { transform: none; }
+        @media (max-width: 760px) { .brick-feature { grid-template-columns: 1fr; } .brick-feature .feature-art { aspect-ratio: 3 / 2; } }
         
         .game-card.featured .card-banner-wrapper {
             aspect-ratio: 1024 / 360;
@@ -184,8 +200,22 @@
 
         <div class="games-grid">
             
-            <!-- 0. New Featured Game -->
-            <div class="game-card featured">
+            <section class="game-card featured brick-feature" id="brick-pop" aria-labelledby="brick-pop-title">
+                <img class="feature-art" src="brick-pop-feature.png" width="1536" height="1024" alt="Colorful studded puzzle bricks fitting together on a circular tray">
+                <div class="feature-copy">
+                    <span class="feature-label">Featured game</span>
+                    <div class="feature-identity">
+                        <img class="feature-thumb" src="brick-pop-thumbnail.png" width="72" height="72" alt="Brick Pop icon">
+                        <h3 id="brick-pop-title">Brick Pop</h3>
+                    </div>
+                    <p>A little color. A satisfying pop. Place playful bricks, bring matching colors together, and make room for your next high score. A cheerful puzzle to enjoy at your own pace.</p>
+                    <span class="coming-soon">Coming soon to Android</span>
+                    <div class="feature-links"><a href="https://www.flypig.work/policy/brick-pop-privacy-policy.html">Privacy Policy</a></div>
+                </div>
+            </section>
+
+            <!-- Existing games retain their three-column desktop layout. -->
+            <div class="game-card">
                 <div class="card-banner-wrapper">
                     <img src="tilematch_cover.png" alt="Tile Match Adventure Journey" class="card-banner">
                 </div>
@@ -327,8 +357,9 @@
         </div>
 
         <div class="footer">
-            <p>&copy; 2024 FlyPig Games Studio. All rights reserved.</p>
-            <p>Contact us: support@flypigzju.github.io</p>
+            <p><a href="terms.html">Terms of Service</a> · <a href="https://www.flypig.work/policy/brick-pop-privacy-policy.html">Brick Pop Privacy Policy</a></p>
+            <p>&copy; 2026 FlyPig Games Studio. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:flypiggame@gmail.com">flypiggame@gmail.com</a></p>
         </div>
 
     </div>
